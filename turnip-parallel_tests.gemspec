@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'parallel_tests', '~> 0.16'
+  spec.add_dependency "parallel_tests", [">= 0.16", "< 2.0"]
   spec.add_dependency 'gherkin'
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"

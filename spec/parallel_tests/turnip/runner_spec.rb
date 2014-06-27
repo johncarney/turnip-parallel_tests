@@ -40,8 +40,8 @@ describe ParallelTests::Turnip::Runner do
         ]
         expect_specs = ['big_size_spec.rb', 'features/small_size_spec.rb']
 
-        actual_features.should =~ expect_features
-        actual_specs.should =~ expect_specs
+        expect(actual_features).to match_array expect_features
+        expect(actual_specs).to match_array expect_specs
       end
     end
 
@@ -51,7 +51,7 @@ describe ParallelTests::Turnip::Runner do
       end
 
       it 'get a test group' do
-        tests_in_groups.size.should eq 1
+        expect(tests_in_groups.size).to eq 1
       end
     end
 
@@ -66,10 +66,10 @@ describe ParallelTests::Turnip::Runner do
         expect_group3 = ['features/battle2.feature', 'features/battle3.feature']
 
         groups = tests_in_groups
-        groups.size.should eq 3
-        groups[0].should =~ expect_group1
-        groups[1].should =~ expect_group2
-        groups[2].should =~ expect_group3
+        expect(groups.size).to eq 3
+        expect(groups[0]).to match_array expect_group1
+        expect(groups[1]).to match_array expect_group2
+        expect(groups[2]).to match_array expect_group3
       end
     end
   end
@@ -89,8 +89,8 @@ describe ParallelTests::Turnip::Runner do
 
         expect_features = [ 'features/songs.feature' ]
 
-        actual_features.should =~ expect_features
-        actual_specs.should be_empty
+        expect(actual_features).to match_array expect_features
+        expect(actual_specs).to be_empty
       end
     end
 
@@ -100,8 +100,8 @@ describe ParallelTests::Turnip::Runner do
       end
 
       it 'get a test group' do
-        tests_in_groups.size.should eq 1
-        tests_in_groups[0].size.should eq 1
+        expect(tests_in_groups.size).to eq 1
+        expect(tests_in_groups[0].size).to eq 1
       end
     end
 
@@ -114,10 +114,10 @@ describe ParallelTests::Turnip::Runner do
         expect_group1 = ['features/songs.feature']
 
         groups = tests_in_groups
-        groups.size.should eq 3
-        groups[0].should =~ expect_group1
-        groups[1].should be_empty
-        groups[2].should be_empty
+        expect(groups.size).to eq 3
+        expect(groups[0]).to match_array expect_group1
+        expect(groups[1]).to be_empty
+        expect(groups[2]).to be_empty
       end
     end
   end
@@ -148,8 +148,8 @@ describe ParallelTests::Turnip::Runner do
           'features/battle3.feature',
         ]
 
-        actual_features.should =~ expect_features
-        actual_specs.should be_empty
+        expect(actual_features).to match_array expect_features
+        expect(actual_specs).to be_empty
       end
     end
 
@@ -165,8 +165,8 @@ describe ParallelTests::Turnip::Runner do
           'features/battle3.feature',
         ]
 
-        tests_in_groups.size.should eq 1
-        tests_in_groups[0].should =~ expect_group
+        expect(tests_in_groups.size).to eq 1
+        expect(tests_in_groups[0]).to match_array expect_group
       end
     end
 
@@ -181,10 +181,10 @@ describe ParallelTests::Turnip::Runner do
         expect_group3 = ['features/battle3.feature']
 
         groups = tests_in_groups
-        groups.size.should eq 3
-        groups[0].should =~ expect_group1
-        groups[1].should =~ expect_group2
-        groups[2].should =~ expect_group3
+        expect(groups.size).to eq 3
+        expect(groups[0]).to match_array expect_group1
+        expect(groups[1]).to match_array expect_group2
+        expect(groups[2]).to match_array expect_group3
       end
     end
   end
